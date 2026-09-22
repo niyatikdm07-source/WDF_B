@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>StudentHub - Register</title>
+ <link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<style>
+.hamburger {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: #4f46e5;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    padding: 8px;
+}
+
+
+
+.theme-button {
+    margin-left: auto;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition: 0.3s;
+}
+
+.theme-button:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   NOTIFICATION
+========================================= */
+
+.notification-banner {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 12px 50px;
+
+    z-index: 9999;
+
+    font-size: 14px;
+
+    transition: 0.4s;
+}
+
+
+.notification-close {
+
+    position: absolute;
+
+    right: 20px;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+
+.hide-notification {
+    transform: translateY(-100%);
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.studenthub-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.75);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 10000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+}
+
+
+.show-modal {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width: 90%;
+
+    max-width: 500px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.3);
+
+    transform: scale(0.8);
+
+    transition: 0.3s;
+}
+
+
+.show-modal .modal-content {
+    transform: scale(1);
+}
+
+
+.modal-icon {
+
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    border-radius: 20px;
+
+    font-size: 35px;
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+
+/* =========================================
+   SLIDER
+========================================= */
+
+.student-slider {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 450px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+}
+
+
+.slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.7s ease;
+}
+
+
+.active-slide {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.slide img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.slide-content {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 50px 35px 30px;
+
+    color: white;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.8)
+    );
+}
+
+
+.slide-content h2 {
+    color: white;
+}
+
+
+.slide-content p {
+    color: white;
+}
+
+
+.slider-prev,
+.slider-next {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    width: 45px;
+    height: 45px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.9);
+
+    color: #4f46e5;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+.slider-prev {
+    left: 20px;
+}
+
+
+.slider-next {
+    right: 20px;
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode {
+
+    background: #0f172a;
+
+    color: #cbd5e1;
+}
+
+
+body.dark-mode header {
+
+    background: linear-gradient(
+        135deg,
+        #312e81,
+        #4c1d95
+    );
+}
+
+
+body.dark-mode nav {
+
+    background: #1e293b;
+}
+
+
+body.dark-mode nav a {
+
+    color: #cbd5e1;
+}
+
+
+body.dark-mode nav a:hover {
+
+    background: #334155;
+
+    color: white;
+}
+
+
+body.dark-mode section,
+body.dark-mode aside,
+body.dark-mode .card,
+body.dark-mode .auth-card {
+
+    background: #1e293b;
+
+    color: #cbd5e1;
+
+    border-color: #334155;
+}
+
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+
+    color: white;
+}
+
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+
+    background: #0f172a;
+
+    color: white;
+
+    border-color: #475569;
+}
+
+
+body.dark-mode .modal-content {
+
+    background: #1e293b;
+
+    color: white;
+}
+
+
+body.dark-mode .theme-button {
+
+    background: #334155;
+
+    color: #facc15;
+}
+
+
+/* =========================================
+   MOBILE HAMBURGER
+========================================= */
+
+@media (max-width: 768px) {
+
+    nav {
+        position: relative;
+    }
+
+
+    .hamburger {
+
+        display: block;
+
+        position: absolute;
+
+        left: 15px;
+        top: 8px;
+    }
+
+
+    nav ul {
+
+        display: none;
+
+        flex-direction: column;
+
+        width: 100%;
+
+        padding-top: 55px;
+    }
+
+
+    nav ul.show-menu {
+
+        display: flex;
+    }
+
+
+    nav li {
+
+        width: 100%;
+    }
+
+
+    nav a {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .theme-button {
+
+        position: absolute;
+
+        right: 15px;
+
+        top: 8px;
+
+        margin: 0;
+    }
+
+
+    .student-slider {
+
+        height: 350px;
+    }
+
+
+    .slide-content {
+
+        padding: 30px 20px 20px;
+    }
+
+}</style>
+</head>
+
+<body>
+  
+
+<header>
+  <h1>StudentHub</h1>
+  <p>Your One Stop Student Portal</p>
+</header>
+
+<nav aria-label="Main Navigation">
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="aboutus.html">About</a></li>
+    <li><a href="register.html">Register</a></li>
+     </ul>
+</nav>
+
+<p class="breadcrumb" aria-label="breadcrumb">Home  Register</p>
+
+
+
+</div>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required><br>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="rollno">Roll Number</label>
+      <input type="text" id="rollno" name="rollno" required><br>
+
+      <label for="course">Course</label>
+      <select id="course" name="course">
+        <option value="btech">B.Tech</option>
+        <option value="bsc">B.Sc</option>
+        <option value="bba">BBA</option>
+      </select><br>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required><br>
+    
+      <button type="submit">Already have an account? Login</button>
+    </form>
+  </section>
+
+  <aside>
+    <h2>Note</h2>
+    <p>All fields marked with  are compulsory. Use a valid college email ID.</p>
+  </aside>
+</main>
+
+<footer>
+  <p> 2026 StudentHub College Portal. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
