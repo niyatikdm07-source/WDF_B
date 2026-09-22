@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <title>LOGIN</title>
+         <link rel="stylesheet" href="style.css">
+         
+    </head>
+    <body>
+
+<nav>
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="aboutus.html">About</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="profile.html">Profile</a></li>
+    </ul>
+</nav>
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <div class="logo-icon">🎓</div>
+            <h1>Welcome Back</h1>
+            <p>Login to StudentHub</p>
+        </div>
+
+        <form action="login.html" method="post">
+
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+            <label for="role">Role</label>
+            <select id="role" name="role" required>
+                <option value="">Select Role</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+            </select>
+
+            <label for="course">Course</label>
+            <select id="course" name="course" required>
+                <option value="">Select Course</option>
+                <option value="btech">B.Tech</option>
+                <option value="bsc">B.Sc</option>
+                <option value="bba">BBA</option>
+            </select>
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <br>
+
+            <button type="submit" style="width:100%;">
+                Login →
+            </button>
+
+        </form>
+
+        <p style="text-align:center;margin-top:20px;">
+            New student?
+            <a href="register.html">Create an account</a>
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 StudentHub College Portal. All Rights Reserved.</p>
+</footer>
+
+</body>
+    
