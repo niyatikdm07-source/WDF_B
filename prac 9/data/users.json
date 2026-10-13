@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "fullname": "25DIT034 NIYATI MEHTA",
+        "email": "25dit034@charusat.edu.in",
+        "mobile": "1226484512",
+        "rollno": "25fig",
+        "course": "btech",
+        "year": "2",
+        "gender": "female",
+        "password": "$2y$10$MXDNULBB65VdZjC5yLajAOqO1PNOxqYA.MxKbI\/X1nrI6OEqXr1qG",
+        "created_at": "2026-10-07 12:07:25"
+    },
+    {
+        "id": 2,
+        "fullname": "Misha patel",
+        "email": "mishapatel@gmail.com",
+        "mobile": "2433453322",
+        "rollno": "25dit",
+        "course": "bba",
+        "year": "2",
+        "gender": "female",
+        "password": "$2y$10$VvqRQSO9Kt4uowRT84AdEOYsSoBelZ2aswz8U3zqRwvZM3A12Isai",
+        "created_at": "2026-10-07 12:29:30"
+    }
+]
